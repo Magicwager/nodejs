@@ -1,11 +1,11 @@
 # nodejs
-###什么是nodejs
+### 什么是nodejs
 
 JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个解析器。
 
 运行在NodeJS中的JS的用途是操作磁盘文件或搭建HTTP服务器，NodeJS就相应提供了fs、http等内置对象。
 
-###安装node
+### 安装node
 
 1.mac：
 
@@ -24,10 +24,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 可以去官网[https://nodejs.org]()选择和系统版本匹配的.msi后缀的安装文件
 
-###如何运行
-
-
-
+### 如何运行
 1.直接运行js代码：
 首先输入`node`进入命令交互模式，然后就可以像浏览器里头的控制台一样输入js代码，例如：
 
@@ -48,7 +45,7 @@ node ./test/hello.js
 
 ```
 
-###模块机制
+### 模块机制
 在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名。
 
 在编写每个模块时，都有require、exports、module三个预先定义好的变量可供使用。
