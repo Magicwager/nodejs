@@ -170,7 +170,32 @@ var hello=require('./hello');
 hello();
 
 ```
-这样感觉上整个hello目录被当作单个模块使用，更有整体感。
+这样做的好处就是感觉上整个hello目录被当作单个模块使用，更有整体感。
+
+如果想自定义入口模块的文件名和存放位置，就需要在包目录下包含一个`package.json`文件，并在其中指定入口模块的路径。如下：
+
+```
+├── animal
+│   ├── main.js
+│   ├── modules
+│   │   ├── actions.js
+│   │   ├── object.js
+│   │   └── subject.js
+│   └── package.json
+└── test.js
+
+```
+
+`animal包`里头并没有`index.js`，因此如果使用该包还是用原来方式`require("./animal")`会报错，这时需要加一个package.json,在这里头指定入口模块，package.json如下：
+
+```
+{
+    "name":"animal",
+    "main":"./main.js"
+}
+
+```
+
 
 
 
