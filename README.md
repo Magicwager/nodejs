@@ -196,6 +196,29 @@ hello();
 
 ```
 
+### 命令行程序
+
+使用NodeJS编写的东西，要么是一个包，要么是一个命令行程序，而前者最终也会用于开发后者(即开发者在自己的代码里头引用包然后使用包)。后者命令行程序则是在系统控制台中通过命令使用。
+
+
+例如我们用NodeJS写了个程序。该程序很简单，在主模块内实现了所有功能。并且写好后，我们把该程序部署在/home/user/bin/node-echo.js这个位置。为了在任何目录下都能运行该程序，我们需要使用以下终端命令。
+
+注意：若提示文件是可以执行但是不能运行且格式问题，如下：
+
+```
+Failed to execute process '/usr/local/bin/animal'. Reason:
+exec: Exec format error
+The file '/usr/local/bin/animal' is marked as an executable but could not be run by the operating system.
+```
+
+则是因为执行文件开头并没有指定解析器，应该在执行文件开头指定node为解析器(`#!/usr/bin/env node`)，如下：
+
+```
+#!/usr/bin/env node
+console.log("Hello nodejs!")
+
+```
+
 
 
 

@@ -3,6 +3,5 @@
     "main": "./main.js",
     "bin": {
         "animal": "./main.js"
-    },
-    "dependencies": {}
+    }
 }
