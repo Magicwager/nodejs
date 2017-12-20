@@ -201,7 +201,54 @@ hello();
 使用NodeJS编写的东西，要么是一个包，要么是一个命令行程序，而前者最终也会用于开发后者(即开发者在自己的代码里头引用包然后使用包)。后者命令行程序则是在系统控制台中通过命令使用。
 
 
-例如我们用NodeJS写了个程序。该程序很简单，在主模块内实现了所有功能。并且写好后，我们把该程序部署在/home/user/bin/node-echo.js这个位置。为了在任何目录下都能运行该程序，我们需要使用以下终端命令。
+例如我们还是接着上面的animal例子。在commandLineTest目录如下：
+
+
+```
+├── main.js
+├── modules
+│   ├── actions.js
+│   ├── object.js
+│   └── subject.js
+└── package.json
+
+```
+其中main.js为包入口模块，所以在系统控制台使用的话，应该在该目录下运行脚本：
+
+` node main.js`
+
+而如果想在任何目录下运行的话则应该：
+
+`node [main.js的全路径]`
+
+
+这种使用方式看起来不怎么像是一个命令行程序，下边的才是我们期望的方式,直接输入命令如下：
+
+`animal`
+
+这时有两种方法实现:
+
+1)第一种是将 main.js 的路径加入环境变量 PATH
+
+	`sudo ln -s [main.js全路径] /usr/local/bin/animal`
+
+2）第二种是在当前目录下新建 package.json ，加上bin属性：
+
+```
+
+{
+    "name": "animal",
+    "main": "./main.js",
+    "bin": {
+        "animal": "./main.js"
+    }
+}
+
+```
+
+然后在当前目录执行`npm link`
+
+这样就可以在任何目录下执行`animal`就运行animal模块了
 
 注意：若提示文件是可以执行但是不能运行且格式问题，如下：
 
@@ -211,11 +258,14 @@ exec: Exec format error
 The file '/usr/local/bin/animal' is marked as an executable but could not be run by the operating system.
 ```
 
-则是因为执行文件开头并没有指定解析器，应该在执行文件开头指定node为解析器(`#!/usr/bin/env node`)，如下：
+则是因为执行文件开头并没有指定解析器，应该在执行文件开头指定node为解析器(`#!/usr/bin/env node`)，如此例子中main.js：
 
 ```
 #!/usr/bin/env node
-console.log("Hello nodejs!")
+var subject=require('./modules/subject');
+var actions=require('./modules/actions');
+var object=require('./modules/object');
+console.log(subject("Cat ")+actions("eat ")+object("mouse"))
 
 ```
 
