@@ -1,0 +1,11 @@
+{
+    "name": "msg-echo",
+    "main": "./lib/msgEcho.js",
+    "version":"1.0.3",
+    "dependencies": {
+        "argv": "0.0.2"
+    },
+    "bin":{
+        "m-echo":"./bin/echo.js"
+    }
+}

@@ -277,6 +277,12 @@ console.log(subject("Cat ")+actions("eat ")+object("mouse"))
 
 ```
 
+### 示例项目结构
+
+注意：如果发布了一个包，要想更新，则应该升版本。然后如果本地是使用命令行的话，再用的时候则应该`npm install [module] -g`更新全局变量，如果只是其他包依赖此包，则`npm update`即可。
+
+
+
 
 
 
