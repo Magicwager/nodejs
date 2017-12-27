@@ -41,6 +41,8 @@
 
 [发布代码](https://github.com/Magicwager/nodejs/blob/master/doc/%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81.md)
 
+[Buffer数据块](https://github.com/Magicwager/nodejs/blob/master/doc/Buffer.md)
+
 注意：如果发布了一个包，要想更新，则应该升版本。然后如果本地是使用命令行的话，再用的时候则应该`npm install [module] -g`更新全局变量，如果只是其他包局部依赖此包，则`npm update`即可。
 
 
