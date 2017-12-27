@@ -56,6 +56,19 @@ console.log(Bdata2);
 console.log(Bdata2.toString('utf-8'));//输出lello
 
 ```
+`.slice`方法返回的Buffer的修改会作用于原Buffer，例如：
+
+```
+var bin = new Buffer([ 0x68, 0x65, 0x6c, 0x6c, 0x6f ]);
+var sub = bin.slice(2);//<Buffer 6c 6c 6f>
+console.log(sub)
+
+sub[0] = 0x65;
+console.log(bin); // => <Buffer 68 65 65 6c 6f>
+```
+
+
+
 
 
 
