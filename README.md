@@ -14,6 +14,9 @@
 │   ├── node模块机制.md
 │   ├── 包简介.md
 │   └── 命令行程序.md
+ 	 ...
+
+
 ├── lib			存放相关API相关代码			
 │   └── msgEcho.js
 ├── package-lock.json
@@ -26,6 +29,9 @@
     ├── moduleTest
     ├── packageTest
     └── requireTest
+    ...
+
+
 ```
 
 具体文档可以参考项目中的文档。
