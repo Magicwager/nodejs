@@ -43,10 +43,10 @@ welcome to my TCP server:
 const net = require('net');
 let client = net.connect({port:8124},function(){
     console.log('client connectted');
-    client.write('world!')
+    client.write('world!')//发送数据
 })
 client.on('data',function(data){
-    console.log(data.toString());
+    console.log(data.toString());//接收的数据
     client.end()
 })
 client.on('end',function(){
