@@ -28,6 +28,42 @@ setImmediate(function(){
 sayHello.on("hello",function(){
     console.log("Hi")
 })
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
+sayHello.on("hello",function(){
+    console.log("Hi")
+})
 //触发hello事件，驱动执行回调函数
 sayHello.emit("hello")
 

@@ -21,5 +21,4 @@ myEmitter.emit("hello","John");
 myEmitter.once("speak",(toSomebody)=>{
     console.log(`${toSomebody},let's begin`)
 })
-myEmitter.emit("speak","Everybody");
-myEmitter.emit("speak","Everybody");
+myEmitter.emit("speak","Everybody").emit("speak","Everybody");

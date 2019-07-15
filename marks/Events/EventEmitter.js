@@ -19,6 +19,7 @@
         this.events[eventName]=[];
         this.events[eventName].push(listener)
     }
+    return this
  }
  /**
   * 
@@ -27,30 +28,35 @@
   * 
   */
  EventEmitter.prototype.emit=function(eventName,...args){
-     if(this.events[eventName]&&("flag" in this.events[eventName])){
-        this.events[eventName].listenerList.forEach(listener=>{
-            listener.apply(this,args)
-        })
-        delete this.events[eventName];
-     }else{
-        this.events[eventName]&&this.events[eventName].forEach(listener => {
-            listener.apply(this,args);
-        });
-     }
+    this.events[eventName]&&this.events[eventName].forEach(listener => {
+        listener.apply(this,args);
+    });
+    return this;//返回对 EventEmitter 的引用，以便可以链式调用。
  }
  /**
   * @function once 事件触发一次
   * @eventName 事件名
+  * @listener 事件绑定的监听器
   * 
   */
  EventEmitter.prototype.once=function(eventName,listener){
-    if(this.events[eventName]){
-        this.events[eventName].listenerList.push(listener)
-    }else{
-        this.events[eventName]={};
-        this.events[eventName].flag = true;
-        this.events[eventName].listenerList = [];
-        this.events[eventName].listenerList.push(listener)
-    }
+   let wrapper = (...args)=>{
+        listener.apply(this,args)
+        this.removeListener(eventName,listener)
+   }
+   this.on(eventName,wrapper)
+   return this;
  }
+ /**
+  * @function removeListener 事件触发一次
+  * @eventName 事件名
+  * @listener 事件绑定的监听器
+  */
+ EventEmitter.prototype.removeListener=function(eventName,listener){
+    this.events[eventName] = this.events[eventName].filter(l=>l===listener);
+    return this;//返回对 EventEmitter 的引用，以便可以链式调用。
+  }
+  /**
+   * @function  
+   */
  module.exports = EventEmitter
